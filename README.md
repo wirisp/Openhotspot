@@ -37,8 +37,6 @@ nano playbook.yml
 nano ansible.cfg
 [defaults]
 # Python interpreter discovery
-interpreter_python = /usr/bin/python3
-python_interprete = python3
 host_key_checking = false
 
 apt install sshpass

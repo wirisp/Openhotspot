@@ -5,13 +5,11 @@ Openwisp &amp; openwrt hotspot
 Acceder por ssh
 
 ssh -lroot -p22 12.345.657.89
-
-python3 --version
-apt install python3-pip
-pip --version
-apt-get install git
+apt install sudo
+apt-get install git -y
 sudo apt-get install python3 python3-pip -y
 sudo pip3 install ansible
+sudo apt install ansible
 python3 -m pip install --user ansible
 ansible-galaxy install openwisp.openwisp2
 

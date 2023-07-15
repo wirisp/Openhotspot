@@ -21,7 +21,7 @@ cd ~/openwisp2-ansible-playbook
 nano hosts
 ```
 [openwisp2]
-#89.117.53.163
+89.117.53.163
 ```
 
 nano playbook.yml
@@ -33,6 +33,13 @@ nano playbook.yml
   vars:
     openwisp2_shared_secret: 84River@Bta
     postfix_myhostname: localhost
+
+nano ansible.cfg
+[defaults]
+# Python interpreter discovery
+interpreter_python = /usr/bin/python3
+python_interprete = python3
+host_key_checking = false
 
 apt install sshpass
 

@@ -39,6 +39,9 @@ nano ansible.cfg
 # Python interpreter discovery
 host_key_checking = false
 
+
+ansible-galaxy install -r requirements.yml
+
 apt install sshpass
 
 ansible-playbook -i hosts playbook.yml -u root -k --become -K
@@ -82,10 +85,17 @@ fact_caching = jsonfile
 fact_caching_connection = .ansible_cache
 fact_caching_timeout = 28800
 
+-------------------------------------------
+## Openwisp dev
 
 
-
-
+apt install sudo
+apt-get install git -y
+sudo apt-get install python3 python3-pip -y
+sudo pip3 install ansible
+export PATH=$PATH:~/.local/bin
+apt install sshpass
+ansible-playbook -i hosts playbook.yml -u root -k --become -K
 
 
 https://github.com/mikysal78/wifi.nnxx.ninux.org/tree/main

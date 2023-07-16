@@ -44,6 +44,9 @@ apt install sshpass
 ansible-playbook -i hosts playbook.yml -u root -k --become -K
 coloca la contrasena de tu servidor
 
+https://github.com/openwisp/ansible-openwisp-wifi-login-pages/
+https://github.com/mikysal78/wifi.nnxx.ninux.org/tree/main
+
 #Agregar ip a known
 ssh-keyscan -H 192.168.1.162 >> ~/.ssh/known_hosts
 
@@ -78,5 +81,11 @@ gathering = smart
 fact_caching = jsonfile
 fact_caching_connection = .ansible_cache
 fact_caching_timeout = 28800
+
+
+
+
+
+
 
 https://github.com/mikysal78/wifi.nnxx.ninux.org/tree/main

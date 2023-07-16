@@ -87,15 +87,67 @@ fact_caching_timeout = 28800
 
 -------------------------------------------
 ## Openwisp dev
+```
+mkdir -p ~/openwisp-dev/roles
+mkdir -p ~/openwisp-dev/collections
+cd ~/openwisp-dev/
+nano ansible.cfg
+```
 
+```
+[defaults]
+roles_path=~/openwisp-dev/roles
+collections_paths=~/openwisp-dev/collections
+host_key_checking = false
+```
 
+```
+nano requirements.yml
+```
+
+```
+---
+roles:
+  - src: https://github.com/openwisp/ansible-openwisp2.git
+    version: master
+    name: openwisp.openwisp2-dev
+collections:
+  - name: community.general
+    version: ">=3.6.0"
+```
+
+```
+ansible-galaxy install -r requirements.yml
+nano hosts
+```
+
+```
+[wifibro]
+uniq.edu.mx
+```
+```
+nano playbook.yml
+```
+
+```
+- hosts: wifibro
+  become: "{{ become | default('yes') }}"
+  roles:
+    - openwisp.openwisp2-dev
+  vars:
+    openwisp2_network_topology: true
+    openwisp2_radius: true
+    openwisp2_monitoring: true
+```
+
+```
 apt install sudo
 apt-get install git -y
 sudo apt-get install python3 python3-pip -y
-sudo pip3 install ansible
+python3 -m pip install --user ansible
 export PATH=$PATH:~/.local/bin
 apt install sshpass
 ansible-playbook -i hosts playbook.yml -u root -k --become -K
-
+```
 
 https://github.com/mikysal78/wifi.nnxx.ninux.org/tree/main
